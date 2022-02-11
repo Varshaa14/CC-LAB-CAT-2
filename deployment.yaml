@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cccit
+  name: cccit-deployment
+  namespace: cccit
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cccit
+  template:
+    metadata:
+      labels:
+        app: cccit
+    spec:
+      containers:
+        - image: project:1
+          imagePullPolicy: Never
+          name: cccit
+          ports:
+            - containerPort: 80
+
+          resources:
+            requests:
+              cpu: 0.1
+              memory: 1Mi
+            limits:
+              cpu: 0.1
+              memory: 1Mi  
+
+
+
+
+            
